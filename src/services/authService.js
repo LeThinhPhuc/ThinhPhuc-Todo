@@ -1,8 +1,8 @@
 import axios from 'axios';
-
+const baseUrl = process.env.REACT_APP_BASE_URL;
 const authService = {
     logIn : (user)=> axios.create({
-        baseURL: 'http://localhost:4000',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
           "Content-Type": "application/json",
@@ -12,7 +12,7 @@ const authService = {
     }).post('/v1/auth/login', user),
 
     register : (user) => axios.create({
-        baseURL: 'http://localhost:4000',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
           "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const authService = {
     }).post('/v1/auth/register', user),
 
     logOut : (user) => axios.create({
-        baseURL: 'http://localhost:4000',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
           "Content-Type": "application/json",

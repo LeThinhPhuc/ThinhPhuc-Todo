@@ -1,9 +1,9 @@
 import axios from "axios";
 // import http from "http";
-const Endpoint="http://localhost:4000"
+const baseUrl = process.env.REACT_APP_BASE_URL;
 const taskService = {
     getAll: (task) => axios.create({
-        baseURL: 'http://localhost:4000',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
           "Content-Type": "application/json",
@@ -14,7 +14,7 @@ const taskService = {
       
 
     getById: (id, task)=> axios.create({
-        baseURL: 'http://localhost:4000/',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
             "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const taskService = {
     }).get(`/v1/task/${id}/${task.email}`),
 
     postTask: (task)=> axios.create({
-        baseURL: 'http://localhost:4000/',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const taskService = {
     }).post(`/v1/task/${task.page}`, task),
 
     UpdateById: (id,user) => axios.create({
-        baseURL: 'http://localhost:4000/',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
             "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const taskService = {
     }).put(`/v1/task/${id}/${user.page}`,user),
 
     DeleteById: (id, user) => axios.create({
-        baseURL: 'http://localhost:4000/',
+        baseURL: baseUrl,
         timeout: 5000,
         headers: {
             "Content-Type": "application/json",
